@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NewsNow | Search the Latest News</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <a class="logo" href="#">News<span>Now</span></a>
+    <p>Your world. Your news. Your search.</p>
+    <button id="theme-toggle" class="theme-toggle" type="button">
+    <span id="theme-icon">🌙</span>
+    <span id="theme-label">Dark Mode</span>
+  </button>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <p class="eyebrow">STAY INFORMED</p>
+      <h1>Discover What's <span>Happening.</span></h1>
+      <p class="subtitle">
+        Search topics, explore stories, and stay up to date.
+      </p>
+
+      <form id="news-form" class="search-form">
+        <label class="sr-only" for="search-input">Search news</label>
+        <input
+          type="search"
+          id="search-input"
+          placeholder="Try AI, Tesla, cricket..."
+          required
+          maxlength="200"
+        >
+        <button type="submit" id="search-btn">Search News</button>
+      </form>
+
+      <div class="filters">
+        <div>
+          <label for="from-date">Published from</label>
+          <input type="date" id="from-date">
+        </div>
+
+        <div>
+          <label for="sort-by">Sort by</label>
+          <select id="sort-by">
+            <option value="publishedAt">Newest first</option>
+            <option value="relevancy">Most relevant</option>
+            <option value="popularity">Popular sources</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="quick-search">
+        <span>Trending topics:</span>
+        <button type="button" class="topic" data-query="Artificial Intelligence">AI</button>
+        <button type="button" class="topic" data-query="Technology">Technology</button>
+        <button type="button" class="topic" data-query="Cricket">Cricket</button>
+        <button type="button" class="topic" data-query="India">India</button>
+      </div>
+    </section>
+
+    <section class="results-section">
+      <div class="results-heading">
+        <div>
+          <h2 id="results-title">Explore the news</h2>
+          <p id="results-count">Search for a topic to get started.</p>
+        </div>
+      </div>
+
+      <p id="message" role="status" aria-live="polite">
+        Enter a keyword above to find articles.
+      </p>
+
+      <div id="news-grid" class="news-grid"></div>
+
+      <button type="button" id="load-more" hidden>
+        Load more articles
+      </button>
+    </section>
+  </main>
+
+  <footer>
+    <p>NewsNow · News results powered by
+      <a href="https://newsapi.org/" target="_blank"
+         rel="noopener noreferrer">NewsAPI.org</a>
+    </p>
+  </footer>
+
+  <script src="api.js"></script>
+</body>
+</html>
